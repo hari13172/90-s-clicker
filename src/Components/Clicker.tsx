@@ -34,7 +34,7 @@ function Clicker() {
         e.preventDefault()
         try {
             // Fetch the existing PDF template
-            const existingPdfBytes = await fetch('src/assets/90sklicker.pdf').then((res) =>
+            const existingPdfBytes = await fetch('/90sklicker.pdf').then((res) =>
                 res.arrayBuffer()
             );
 
