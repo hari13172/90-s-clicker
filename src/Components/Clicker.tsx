@@ -34,9 +34,12 @@ function Clicker() {
         e.preventDefault()
         try {
             // Fetch the existing PDF template
-            const existingPdfBytes = await fetch('/90sklicker.pdf').then((res) =>
-                res.arrayBuffer()
-            );
+            const existingPdfBytes = await fetch('/90sklicker.pdf').then((res) => {
+                if (!res.ok) {
+                    throw new Error('Network response was not ok.');
+                }
+                return res.arrayBuffer();
+            });
 
             // Load a PDFDocument from the existing PDF
             const pdfDoc = await PDFDocument.load(existingPdfBytes);
@@ -112,7 +115,7 @@ function Clicker() {
     const inputClass = "mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:ring-opacity-50 focus:ring-blue-500";
 
     return (
-        <div className="min-h-screen bg-gray-400 flex items-center justify-center">
+        <div className="min-h-screen bg-white flex items-center justify-center">
             <div className="w-full max-w-xl p-6 bg-white rounded-lg shadow-md">
                 <div className="flex justify-center items-center mb-4">
                     <img src={logo} alt="Logo" className="w-[350px] h-[200px]" />
