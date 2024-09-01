@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { PDFDocument, rgb, StandardFonts } from 'pdf-lib';
 import logo from '../assets/logo.png';
 import { toast, ToastContainer } from 'react-toastify';
@@ -30,7 +30,7 @@ function Clicker() {
         setBigSizePhotoFrame(false);
     };
 
-    const generateRandomPDF = async (e) => {
+    const generateRandomPDF = async (e: any) => {
         e.preventDefault()
         try {
             // Fetch the existing PDF template
